@@ -1,0 +1,62 @@
+{% block body %}
+    <!-- Team section -->
+    <section id="team" class="parallax-section">
+       <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                        <h2>Le bureau</h2>
+                        <h4>Les petites mains qui agissent dans l'ombre</h4>
+                    </div>
+                </div>
+            </div>
+                {#<div class="row m-t-25 justify-content-around">#}
+                    {#{% for user in bureau %}#}
+                        {#<div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">#}
+                            {#<div class="team-thumb">#}
+                                {#<img src="/images/users/{{ user.picture }}" onmouseover="this.src='/images/users/{{ user.pictureFun }}'" onmouseout="this.src='/images/users/{{ user.picture }}'" class="img-responsive" alt="Team">#}
+                                {#<div class="team-des">#}
+                                    {#<h3>{{ user.firstName ~ " " ~ user.lastName}}</h3>#}
+                                    {#{% for role in user.roles %}#}
+                                        {#{% if role not in ['ROLE_USER', 'ROLE_ADMIN'] %}#}
+                                            {#<h4>{{ role }}</h4>#}
+                                        {#{% endif %}#}
+                                    {#{% endfor %}#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#{% endfor %}#}
+                {#</div>#}
+           <div class="row m-t-25 justify-content-around">
+               {% for user in bureau %}
+                   <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                       <div class="team-thumb">
+                           {%  set first, second = user.picture, user.pictureFun %}
+                                {% if first is empty and second is not empty%}
+                                    {% set first = 'singe1.jpg' %}
+                                {% elseif second is empty and first is not empty %}
+                                    {% set second = 'singeAssis1.jpg' %}
+                                {% elseif first is empty and second is empty %}
+                                    {% set first = 'lama1.jpg' %}
+                                    {% set second = 'ane1.jpg' %}
+                                {% endif %}
+
+                            {#{% endset %}#}
+                           <img src="/images/users/{{ first }}" onmouseover="this.src='/images/users/{{ second }}'" onmouseout="this.src='/images/users/{{ first }}'" class="img-responsive" alt="Team">
+                           <div class="team-des">
+                               <h3>{{ user.firstName ~ " " ~ user.lastName}}</h3>
+                               {% for role in user.roles %}
+                                   {% if role not in ['ROLE_USER', 'ROLE_ADMIN'] %}
+                                       <h4>{{ role }}</h4>
+                                   {% endif %}
+                               {% endfor %}
+                           </div>
+                       </div>
+                   </div>
+               {% endfor %}
+           </div>
+        </div>
+    </section>
+
+{% endblock %}

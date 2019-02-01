@@ -1,0 +1,40 @@
+{% extends '/admin/baseAdmin.html.twig' %}
+
+{% block body %}
+    {#<div class="main-content">#}
+        {#<div class="section__content section__content--p30">#}
+            {#<div class="container-fluid">#}
+                {#<div class="row">#}
+                    {#<div class="col-md-12">#}
+                        {#<div class="">#}
+                            {#<div class="row">#}
+                                {#<h1 class="m-5">Création d'un nouvel utilsateur</h1>#}
+                            {#</div>#}
+                            {#<div class="row col-6">#}
+                                {#{% include('/admin/users/_form.html.twig') %}#}
+                            {#</div>#}
+                            {#<a class="btn btn-lg btn-info m-5" href="{{ path('users_index') }}">Revenir à la liste</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+    <div class="container-contact100">
+        <div class="wrap-contact750">
+            <span class="contact100-form-title mt-5 pt-5">
+					Création d'un nouvel utilisateur
+            </span>
+            {{ include('/admin/users/_form.html.twig') }}
+        </div>
+    </div>
+
+    {##}
+    {##}
+    {#<h1>Création d'un nouvel utilsateur</h1>#}
+
+    {#{{ include('/admin/users/_form.html.twig') }}#}
+
+    {#<a href="{{ path('users_index') }}">Revenir à la liste des utilisateurs</a>#}
+{% endblock %}

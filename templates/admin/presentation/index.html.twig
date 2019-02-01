@@ -1,0 +1,28 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid text-center m-t-100">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="mt-5">{{ presentation.title }}</h2>
+                    </div>
+                </div>
+                <div class="row m-t-35 m-b-35">
+                    <div class="col-lg-12">
+                    <p class="sizePresentation">{{ presentation.content | nl2br}}</p>
+                    </div>
+                </div>
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn m-auto">
+                        <div class="contact100-form-bgbtn"></div>
+                        <a href="{{ path('presentation_edit', {'id': presentation.id}) }}"><button class="contact100-form-btn">
+                            Modifier
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

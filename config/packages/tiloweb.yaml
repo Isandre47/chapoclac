@@ -1,0 +1,2 @@
+tiloweb_pagination:
+    template: 'pagination.html.twig'

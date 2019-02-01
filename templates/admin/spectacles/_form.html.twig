@@ -1,0 +1,27 @@
+
+{{ form_start(form, {'attr': {'class':'contact100-form validate-form'}}) }}
+<div class="wrap-input100" data-validate="Avec une image c'est mieux">
+    {{ form_widget(form.poster) }}
+    {{ form_errors(form.poster) }}
+</div>
+<div class="wrap-input100 validate-input" data-validate = "Il a bien un petit nom....">
+    {{ form_widget(form.title) }}
+</div>
+<div class="wrap-input100 validate-input" data-validate = "Un avant goût?">
+    {{ form_widget(form.resume) }}
+</div>
+        {{ form_label(form.users)  }}
+    <div class="wrap-input100 list-check">
+        {{ form_widget(form.users) }}
+    </div>
+<div class="container-contact100-form-btn">
+    <div class="wrap-contact100-form-btn">
+        <div class="contact100-form-bgbtn"></div>
+
+        <button class="btn btn contact100-form-btn">{{ button_label|default('Créer') }}</button>
+    </div>
+</div>
+{{ form_end(form) }}
+
+
+

@@ -1,0 +1,12 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            <span class="contact100-form-title">
+					Créer un Cours / Atelier
+            </span>
+            {{ include('admin/class/_addCours.html.twig', {'button_label': 'Créer'}) }}
+        </div>
+    </div>
+{% endblock %}

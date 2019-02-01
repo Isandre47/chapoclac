@@ -1,0 +1,67 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block body %}
+
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div class="overview-wrap">
+                            <h2 class="title-1">Galerie du spectacle {{ spectacle.title }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <div class="container-contact100-form-btn">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+                                <a href="{{ path('gallery_new', {'id' : spectacle.id}) }}">
+                                    <button class="contact100-form-btn">
+                                        Ajouter photo
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="container-contact100-form-btn ml-5">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+                                <form action="{{ path('gallery_delete') }}" method="post" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer ces photos?');">
+                                    <input type="hidden" id="idElementsToDelete" name="idElementsToDelete">
+                                    <input type="hidden" name="spectacle" value="{{ spectacle.id }}">
+                                    <button type="submit" class="contact100-form-btn" id="deletePictureButton">
+                                        Supprimer les photos
+                                    </button>
+                                </form>
+                                {#<a href="{{ path('gallery_new', {'id' : spectacle.id}) }}">#}
+                                {#</a>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="row m-t-25">
+                    {% for gallery in spectacle.galleries %}
+                        <div class="col-4">
+                            <img class="img-fluid img-thumbnail"
+                                src="/images/gallery/{{ gallery.picture }}"
+                                alt="{{ gallery.picture }}" width="100%">
+                            <form method="post" class="crossbones"
+                                  action="{{ path('gallery_delete') }}"
+                                  onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cette photo?');">
+                                <input type="hidden"
+                                       name="idElementsToDelete"
+                                       value="{{ gallery.id }}">
+                                <input type="hidden" name="spectacle" value="{{ spectacle.id }}">
+                                <button type="submit"
+                                        class="text-danger"><i
+                                        class="fas fa-skull-crossbones fa-lg"></i></button>
+                            </form>
+                            <input type="checkbox" id="{{ gallery.id }}" name="supprimer" class="checkboxDelete">
+                            <label for="supprimer"></label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

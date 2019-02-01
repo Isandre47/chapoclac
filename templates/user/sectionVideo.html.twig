@@ -1,0 +1,20 @@
+{% block body %}
+    <!-- Video section -->
+                {% for youtube in youtubes %}
+    <section id="video" class="parallax-section" style="background: url('/images/youtube/{{ youtube.picture }}') 50% 0 repeat-y fixed;">
+        <div class="overlay"></div>
+        <div class="container-fluid">
+            <div class="row">
+
+                    <div class="col-md-offset-2 col-md-8 col-sm-12">
+                        <a href="{{ youtube.link }}" target="_blank"><i class="fa fa-play"></i>
+                        </a>
+                        <h2 class="wow fadeInUp" data-wow-delay="0.5s">{{ youtube.title }}</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.8s">{{ youtube.subTitle }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

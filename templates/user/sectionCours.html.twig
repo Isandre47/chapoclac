@@ -1,0 +1,54 @@
+{% block body %}
+    <!-- Menu section -->
+    <section id="menu" class="parallax-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                        <h2>Cours / Ateliers</h2>
+                        <h4>Venez nous rejoindre !</h4>
+                    {% include ('user/flash-messages.html.twig') %}
+                    </div>
+                </div>
+
+                    <div class="col-md-12 col-sm-12">
+                        {% for activity in activities %}
+                            <div class="col-md-6 col-sm-12" style="height: 188px">
+                                <div class="media wow fadeInUp col-md-12" data-wow-delay="0.6s">
+                                    <div class="media-object pull-left col-md-6">
+                                        <img style="height: 138px" src="images/activities/{{ activity.picture }}"
+                                             alt="activities_chapo_clac">
+                                        <span class="menu-price">
+                                {% if app.user is empty %}
+                                     <a href="{{ path('app_login') }}">Demande d'inscription</a></span>
+                                        {% elseif activity in userActivities %}
+                                            <a href="{{ path('user_un', {'activity':activity.id}) }}">Se désinscrire</a></span>
+                                        {% else %}
+                                            <a href="{{ path("add_reservation", {'activity':activity.id}) }}"
+                                               class="text-black">Demande d'inscription</a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="media-body col-md-6">
+                                        <h3 class="media-heading">{{ activity.cours }}</h3>
+                                        <p class="hidden-xs">{{ activity.day }} {{ activity.hour }}</p>
+                                        <span class="hidden-xs">{{ activity.price }}€/an.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+            </div>
+        </div>
+        <div class="container">
+            <p class="text-center">Les cours se déroulent à l'ancienne école primaire.</p>
+
+            <p class="text-center">Contenu des cours, selon les niveaux :
+                Approfondissement des techniques théâtrales, Voix et diction, Techniques de l’improvisation, Mouvement
+                scénique,
+                Jeu et interprétation, Travail de textes classiques et contemporains, Représentation.
+            </p>
+        </div>
+    </section>
+
+{% endblock %}

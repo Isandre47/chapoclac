@@ -1,0 +1,51 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block body %}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <h2 class="title-1">Youtube</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="m-t-25">
+
+                {% for youtube in youtubes %}
+
+                        <h4>Titre</h4>
+                        <p>{{ youtube.title }}</p>
+                        <br>
+                        <h4>Sous titre</h4>
+                        <p>{{ youtube.subTitle }}</p>
+                        <br>
+                        <h4>Lien</h4>
+                        <p>{{ youtube.link }}</p>
+                        <br>
+                        <h4>Image</h4>
+                        <img class="img-fluid img-thumbnail sizePictureTab" src="/images/youtube/{{ youtube.picture }}" alt="youtube_picture"></td>
+                        <br>
+
+                {% else %}
+
+                        <td colspan="5">no records found</td>
+
+                {% endfor %}
+
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <a href="{{ path('youtube_edit', {'id': youtubes[0].id}) }}"><button class="contact100-form-btn">
+                                Modifier
+                            </button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

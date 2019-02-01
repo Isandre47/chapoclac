@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<title>New Gallery</title>
+
+{% block body %}
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+
+            {{ include('/admin/gallery/_form.html.twig', {'button_label': 'Ajouter'}) }}
+        </div>
+    </div>
+{% endblock %}

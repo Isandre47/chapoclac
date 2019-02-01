@@ -1,0 +1,125 @@
+{% extends "admin/baseAdmin.html.twig" %}
+
+{% block body %}
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <h2 class="title-1">Modifier membre</h2>
+                    </div>
+                </div>
+
+                {#<div class="col-lg-6">#}
+                    {#<div class="card">#}
+                        {#<div class="card-header">#}
+                            {#<strong>Validation states</strong> Form#}
+                        {#</div>#}
+                        {#<div class="card-body card-block">#}
+                            {#<div class="has-success form-group">#}
+                                {#<label for="inputIsValid" class=" form-control-label">Input is valid</label>#}
+                                {#<input type="text" id="inputIsValid" class="is-valid form-control-success form-control">#}
+                            {#</div>#}
+                            {#<div class="has-warning form-group">#}
+                                {#<label for="inputIsInvalid" class=" form-control-label">Input is invalid</label>#}
+                                {#<input type="text" id="inputIsInvalid" class="is-invalid form-control">#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+                <div class="row m-t-25">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Icon/Text</strong> Groups
+                            </div>
+                            <div class="card-body card-block">
+                                <form action="" method="post" class="form-horizontal">
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="First name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="Last name">
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-12">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-user"></i>
+                                                </div>
+                                                <input type="text" id="firstName" name="firstName" placeholder="Nom" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="col col-md-12">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-user"></i>
+                                                </div>
+                                                <input type="text" id="lastName" name="lastName" placeholder="Prénom" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-12">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="far fa-building"></i>
+                                                </div>
+                                                <input type="text" id="function" name="function" placeholder="Fonction" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-12">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="far fa-envelope"></i>
+                                                </div>
+                                                <input type="email" id="input2-group1" name="input2-group1" placeholder="Email" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-12">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fas fa-phone"></i>
+                                                </div>
+                                                <input type="phone" id="phone" name="phone" placeholder="Téléphone" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-12">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                </div>
+                                                <input type="text" id="address" name="address" placeholder="Adresse" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

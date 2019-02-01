@@ -1,0 +1,138 @@
+{#{{ form_start(form) }}#}
+    {#{{ form_widget(form) }}#}
+{#<button class="btn">{{ button_label|default('Save') }}</button>#}
+{#{{ form_end(form) }}#}
+
+    {{ form_start(form, {'attr': {'class':'contact100-form validate-form'}}) }}
+<section id="feature" class="parallax-section">
+    <div class="container">
+        <div class="row">
+            <h2 class="titleRegister">Inscription</h2>
+            <div class="col-6 custom-col-edit"><label class="textRegister">Prénom</label>
+                <div class="wrap-input100 validate-input" data-validate="Un petit nom?">
+                    {{ form_widget(form.firstName) }}
+                    <label class="label-input100" for="{{ form.firstName.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <label class="textRegister">Nom</label>
+                <div class="wrap-input100 validate-input" data-validate = "Vous n'avez pas de nom de famille?">
+                    {{ form_widget(form.lastName) }}
+                    <label class="label-input100" for="{{ form.lastName.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <label class="textRegister">Adresse</label>
+                <div class="wrap-input100 validate-input" data-validate = "Où habitez-vous?">
+                    {{ form_widget(form.userAdress) }}
+                    <label class="label-input100" for="{{ form.userAdress.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <label class="textRegister">Téléphone Fixe</label>
+                <div class="wrap-input100 validate-input" data-validate = "Un n° de tel fixe au cas où le portable ne passe chez vous">
+                    {{ form_widget(form.phoneHouse) }}
+                    <label class="label-input100" for="{{ form.phoneHouse.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <label class="textRegister">Téléphone Mobile</label>
+                <div class="wrap-input100 validate-input" data-validate = "Un n° de portable pour vous joindre n'importe où">
+                    {{ form_widget(form.phoneMobil) }}<label class="label-input100" for="{{ form.phoneMobil.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <label class="textRegister">E-Mail</label>
+                <div class="wrap-input100 validate-input" data-validate = "Un mail si on n'arrive à joindre personne par tel">
+                    {{ form_widget(form.email) }}
+                    <label class="label-input100" for="{{ form.email.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <label class="textRegister">Photo</label>
+                <div class="wrap-input100 validate-input" data-validate="Avec une image c'est mieux">
+                    {{ form_widget(form.picture) }}
+                </div>
+                <label class="textRegister">Date de naissance</label>
+                <div class="wrap-input100 validate-input">
+                    {{ form_widget(form.birthDate) }}
+                </div>
+                <label class="mt-6 textRegister">Assurance</label>
+                <div class="wrap-input100 validate-input mt-3" data-validate = "Mieux vaut être prudent">
+                    {{ form_widget(form.insurance) }}
+                    <label class="label-input100" for="{{ form.insurance.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-6 custom-col-edit">
+                <label class="textRegister">Contrat d'assurance</label>
+                <div class="wrap-input100 validate-input" data-validate = "Mieux vaut être prudent">
+                    {{ form_widget(form.numInsurance) }}
+                    <label class="label-input100" for="{{ form.numInsurance.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <label class="textRegister">Nom du docteur traitant</label>
+                <div class="wrap-input100 validate-input" data-validate = "Mieux vaut être prudent">
+                    {{ form_widget(form.doctorName) }}
+                    <label class="label-input100" for="{{ form.doctorName.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <label class="textRegister">Téléphone docteur traitant</label>
+                <div class="wrap-input100 validate-input" data-validate = "Mieux vaut être prudent">
+                    {{ form_widget(form.doctorPhone) }}
+                    <label class="label-input100" for="{{ form.doctorPhone.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <label class="textRegister">Adresse du docteur traitant</label>
+                <div class="wrap-input100 validate-input" data-validate = "Mieux vaut être prudent">
+                    {{ form_widget(form.doctorAdress) }}
+                    <label class="label-input100" for="{{ form.doctorAdress.vars.id }}">
+                        <span class="lnr lnr-pencil"></span>
+                    </label>
+                </div>
+                <div class="borderMinor">
+                    <div class="mineur">A remplir uniquement pour les mineurs</div>
+                    <label class="textRegister">Numéro de téléphone du responsable</label>
+                    <div class="wrap-input100 validate-input" data-validate = "Qui joindre?">
+                        {{ form_widget(form.minorPhone) }}
+                        <label class="label-input100" for="{{ form.minorPhone.vars.id }}">
+                            <span class="lnr lnr-pencil"></span>
+                        </label>
+                    </div>
+                    <label class="textRegister">Quelle classe ?</label>
+                    <div class="wrap-input100 validate-input" data-validate = "T'es en quel classe?">
+                        {{ form_widget(form.minorClass) }}
+                        <label class="label-input100" for="{{ form.minorClass.vars.id }}">
+                            <span class="lnr lnr-pencil"></span>
+                        </label>
+                    </div>
+                    <label class="textRegister">Responsable légal</label>
+                    <div class="wrap-input100 validate-input" data-validate = "Qui joindre?">
+                        {{ form_widget(form.minorNameResponsable) }}
+                        <label class="label-input100" for="{{ form.minorNameResponsable.vars.id }}">
+                            <span class="lnr lnr-pencil"></span>
+                        </label>
+                    </div>
+                    {% do form.numberCheck.setRendered %}
+                    {% do form.roles.setRendered %}
+                    {% do form.contributions.setRendered %}
+                    {#{% do form.validate.setRendered %}#}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-contact100-form-btn justify-content-center">
+        <div class="wrap-contact100-form-btn">
+            <div class="contact100-form-bgbtn"></div>
+            <button class="btn btn contact100-form-btn buttonRegister">{{ button_label|default('Créer') }}</button>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+{{ form_end(form) }}

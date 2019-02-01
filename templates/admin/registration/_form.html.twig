@@ -1,0 +1,21 @@
+{#{{ form_start(form) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<button class="btn">{{ button_label|default('Save') }}</button>#}
+{#{{ form_end(form) }}#}
+
+
+{{ form_start(form, {'attr': {'class':'contact100-form validate-form'}}) }}
+    {#{{ form_label(form.user) }}#}
+<div class="wrap-input100 validate-input" data-validate = "C'est quel jour?">
+    {{ form_widget(form.user) }}
+</div>
+<div class="wrap-input100 validate-input" data-validate = "C'est quel jour?">
+    {{ form_widget(form.activity) }}
+</div>
+<div class="container-contact100-form-btn">
+    <div class="wrap-contact100-form-btn">
+        <div class="contact100-form-bgbtn"></div>
+        <button class="btn btn contact100-form-btn">{{ button_label|default('Ajouter') }}</button>
+    </div>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,87 @@
+{% block body %}
+    <!-- About section -->
+    <section id="about" class="parallax-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 ">
+                    <div class="wow fadeInUp section-title" data-wow-delay="1s">
+
+
+<head>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+            <h2>Nos spectacles</h2>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-offset-2 col-md-8'>
+            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                <!-- Bottom Carousel Indicators -->
+
+
+                <!-- Carousel Slides / Quotes -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="item">
+                            <div class="container div0">
+                                <p class="titre">{{ spectacles[0].title | capitalize }}</p>
+                            </div>
+                            <div class="container div1">
+                                <div class="gauche">
+                                    <img class="poster" src="{{ '/images/posters/' ~ spectacles[0].poster }} ">
+                                </div>
+                                <div class="droite">
+                                    <p class="resume">{{ spectacles[0].resume }}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="comedien actu"><span>Distribution :</span>
+                                    {% for user in spectacles[0].users %}
+                                        {{ user.FirstName ~ " " ~ user.LastName ~","}}
+                                    {% endfor %}
+                                </p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                        {% for spectacle in spectacles %}
+                            {% if loop.index > 1 %}
+                            <div class="item">
+                                <div class="container div0">
+                                    <p class="titre">{{ spectacle.title | capitalize}}</p>
+                                </div>
+                                <div class="container div1">
+                                    <div class="gauche">
+                                        <img class="poster" src="{{ '/images/posters/' ~ spectacle.poster }}">
+                                    </div>
+                                    <div class="droite">
+                                        <p class="resume">{{ spectacle.resume }}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="comedien actu"><span>Distribution :</span>
+                                        {% for user in spectacle.users %}
+                                        {{ user.FirstName ~ " " ~ user.LastName ~","}}
+                                        {% endfor %}
+                                    </p>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                </div>
+
+                <!-- Carousel Buttons Next/Prev -->
+                <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+            </div>
+                </div>
+    </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}

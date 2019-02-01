@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>Chapo clac - Admin</title>
+
+    <!-- stylesheets css -->
+    <link rel="stylesheet" href="users/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="users/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="users/css/animate.min.css">
+    <link rel="stylesheet" href="users/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="users/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="users/css/nivo_themes/default/default.css">
+
+    <link rel="stylesheet" href="users/css/hover-min.css">
+    <link rel="stylesheet" href="users/css/flexslider.css">
+
+    <link rel="stylesheet" href="users/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<!-- Preloader section -->
+<div class="preloader" style="display: none;">
+    <div class="sk-spinner sk-spinner-pulse"></div>
+</div>
+
+
+<!-- Home section -->
+<section id="home" class="parallax-section">
+    <div class="gradient-overlay"></div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-offset-2 col-md-8 col-sm-12">
+                <h1 class="wow fadeInUp" data-wow-delay="0.6s">Chapo Clac</h1>
+
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+                    <label for="inputEmail" class="sr-only">E-mail</label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                    <div style="height: 15px;" class="mb-3"></div>
+                    <label for="inputPassword" class="sr-only">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}">
+
+
+                    <button class="btn btn-lg btn-primary" type="submit">
+                        Valider
+                    </button>
+                </form>
+                <p class="inscription wow fadeInUp" data-wow-delay="1s">Vous n'avez pas de compte? <a href="{{ path('app_register') }}">Cliquez ici !</a></p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- javscript js -->
+<script src="users/js/jquery.js"></script>
+<script src="users/js/bootstrap.min.js"></script>
+
+<script src="users/js/jquery.magnific-popup.min.js"></script>
+
+<script src="users/js/jquery.sticky.js"></script>
+<script src="users/js/jquery.backstretch.min.js"></script>
+
+<script src="users/js/isotope.js"></script>
+<script src="users/js/imagesloaded.min.js"></script>
+<script src="users/js/nivo-lightbox.min.js"></script>
+
+<script src="users/js/jquery.flexslider-min.js"></script>
+
+<script src="users/js/jquery.parallax.js"></script>
+<script src="users/js/smoothscroll.js"></script>
+<script src="users/js/wow.min.js"></script>
+
+<script src="users/js/custom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>{% block title %}Chapo - clac{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+
+    <!-- stylesheets css -->
+    <link rel="stylesheet" href="/users/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/users/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/users/css/animate.min.css">
+    <link rel="stylesheet" href="/users/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/users/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="/users/css/nivo_themes/default/default.css">
+
+    <link rel="stylesheet" href="/users/css/hover-min.css">
+    <link rel="stylesheet" href="/users/css/flexslider.css">
+
+    <link rel="stylesheet" href="/users/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- Navigation section -->
+{% include 'user/navbar.html.twig' %}
+
+
+{% block body %}
+
+    <div class="main-content bg-info" id="show">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-center white">
+                        <div class="overview-wrap">
+                            <h1 class="title-1">{{ user.firstName }} {{ user.lastName }}</h1>
+                        </div>
+                    </div>
+                    <div>
+                        <img class="w-50" src="{{ user.picture }}" alt="">
+                    </div>
+                </div>
+
+                <section id="inscrip" class="parallax-section">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="content">
+                                <div class="animated fadeIn">
+
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="cardUser">
+                                                <div class="card-header">
+                                                    <strong>A propos de moi</strong>
+                                                </div>
+                                                <div class="card-body card-block">
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Nom</label>
+                                                        <div class="input-group">
+
+                                                            {{ user.firstname }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Prénom</label>
+                                                        <div class="input-group">
+                                                            {{ user.lastname }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Adresse</label>
+                                                        <div class="input-group">
+                                                            {{ user.userAdress }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Numéro de téléphone</label>
+                                                        <div class="input-group">
+                                                            {{ user.phoneHouse }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Numéro de mobile</label>
+                                                        <div class="input-group">
+                                                            {{ user.phoneMobil }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Email</label>
+                                                        <div class="input-group">
+                                                            {{ user.email }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Date de naissance</label>
+                                                        <div class="input-group">
+                                                            {{ user.birthDate|date("d/m/Y") }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="cardUser">
+                                                        <div class="card-header">
+                                                            <strong>Assurance</strong>
+                                                        </div>
+                                                        <div class="card-body card-block">
+                                                            <div class="form-group">
+                                                                <label class=" form-control-label labelShowUser">Nom</label>
+                                                                <div class="input-group">
+                                                                    {{ user.insurance }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class=" form-control-label labelShowUser">Numéro de contrat</label>
+                                                                <div class="input-group">
+                                                                    {{ user.numInsurance }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="cardUser">
+                                                        <div class="card-header">
+                                                            <strong>Docteur</strong>
+                                                        </div>
+                                                        <div class="card-body card-block">
+                                                            <div class="form-group">
+                                                                <label class=" form-control-label labelShowUser">Nom</label>
+                                                                <div class="input-group">
+                                                                    {{ user.doctorName }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class=" form-control-label labelShowUser">Téléphone</label>
+                                                                <div class="input-group">
+                                                                    {{ user.doctorPhone }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class=" form-control-label labelShowUser">Adresse</label>
+                                                                <div class="input-group">
+                                                                    {{ user.doctorAdress }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% if user.minorNameResponsable is empty %}
+
+                                    {% else %}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="cardUser">
+                                                <div class="card-header">
+                                                    <strong>Info supplémentaire pour les mineurs</strong>
+                                                </div>
+                                                <div class="card-body card-block">
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Nom du responsable</label>
+                                                        <div class="input-group">
+                                                            {{ user.minorNameResponsable }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Numéro du responsable</label>
+                                                        <div class="input-group">
+                                                            {{ user.minorPhone }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class=" form-control-label labelShowUser">Classe</label>
+                                                        <div class="input-group">
+                                                            {{ user.minorClass }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+
+
+                                    <h3 class="text-center"><a href="{{ path('userEdit', {'id': user.id}) }}"><span class="borderMinor">Editer votre profil</span></a></h3>
+
+                                {#</div>#}
+                            {#</div><!-- .content -->#}
+                        {#</div>#}
+                    {#</div>#}
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
+<!-- javscript js -->
+<script src="/users/js/jquery.js"></script>
+<script src="/users/js/bootstrap.min.js"></script>
+
+<script src="/users/js/jquery.magnific-popup.min.js"></script>
+
+<script src="/users/js/jquery.sticky.js"></script>
+<script src="/users/js/jquery.backstretch.min.js"></script>
+
+<script src="/users/js/isotope.js"></script>
+<script src="/users/js/imagesloaded.min.js"></script>
+<script src="/users/js/nivo-lightbox.min.js"></script>
+
+<script src="/users/js/jquery.flexslider-min.js"></script>
+
+<script src="/users/js/jquery.parallax.js"></script>
+<script src="/users/js/smoothscroll.js"></script>
+<script src="/users/js/wow.min.js"></script>
+
+<script src="/users/js/custom.js"></script>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

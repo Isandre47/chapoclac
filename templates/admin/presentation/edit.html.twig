@@ -1,0 +1,25 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            {{ form_start(form, {'attr': {'class':'contact100-form validate-form'}}) }}
+            <h2 class="m-3">
+                Qui sommes nous ?
+            </h2>
+            <div class="wrap-input100 validate-input" required>
+                <textarea class="input100" id="{{ form.content.vars.id }}" type="text"
+                          name="{{ form.content.vars.full_name }}">{{ form.content.vars.value }}</textarea>
+                {{ form_errors(form.content) }}
+                {% do form.content.setRendered %}
+            </div>
+            <div class="container-contact100-form-btn">
+                <div class="wrap-contact100-form-btn">
+                    <div class="contact100-form-bgbtn"></div>
+                    <button class="btn contact100-form-btn">{{ button_label|default('Sauvegarder') }}</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!-- Navigation section -->
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+            <img src="/users/images/logo.png" alt="Chapo - Clac">
+            <!--<a href="#" class="navbar-brand">Chapo - Clac</a>-->
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('user', relative = true) }}#top" class="smoothScroll">Accueil</a></li>
+                <li><a href="{{ path('user', relative = true) }}#nous" class="smoothScroll">Qui sommes nous</a></li>
+                <li><a href="{{ path('user', relative = true) }}#feature" class="smoothScroll">Actualités</a></li>
+                <li><a href="{{ path('user', relative = true) }}#about" class="smoothScroll">Spectacles</a></li>
+                <li><a href="{{ path('user', relative = true) }}#menu" class="smoothScroll">Cours</a></li>
+                <li><a href="{{ path('user', relative = true) }}#gallery" class="smoothScroll">Galerie</a></li>
+                <li><a href="{{ path('user', relative = true) }}#team" class="smoothScroll">Bureau</a></li>
+                <li><a href="{{ path('user', relative = true) }}#contact" class="smoothScroll">Contact</a></li>
+                {% if app.token.user == 'anon.' %}
+                    <li><a href="{{ path('app_login') }}" class="smoothScroll">Se connecter</a></li>
+                    <li><a href="{{ path('app_register') }}" class="smoothScroll">S'inscrire</a></li>
+                {% else %}
+                    <li><a href="{{ path('userShow', {'id': app.user.id} ) }}" class="smoothScroll text-capitalize">{{ app.user.firstName }}</a></li>
+                    {% for idiot in app.user.roles %}
+                        {% if idiot == 'ROLE_ADMIN' %}
+                            <li><a href="{{ path('admin', {'id': app.user.id} ) }}" class="smoothScroll">Admin</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    <li><a href="{{ path('app_logout')}}" class="smoothScroll">Déconnexion</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

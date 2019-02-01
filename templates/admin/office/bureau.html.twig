@@ -1,0 +1,59 @@
+{% extends "admin/baseAdmin.html.twig" %}
+
+{% block body %}
+
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="overview-wrap">
+                            <h2 class="title-1">Bureau</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-t-25 justify-content-around">
+                    {% for user in bureau %}
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card">
+                                <div class="box">
+                                    <div class="img">
+                                        <img src="/images/users/{{ user.picture }}">
+                                    </div>
+                                    <h2>{{ user.firstName }} {{ user.lastName }}<br>
+                                        <span>
+                                            {% for role in user.roles %}
+                                                {% if role not in ['ROLE_USER', 'ROLE_ADMIN'] %}
+                                                    {{ role }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </span>
+                                    </h2>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="">
+                                            <p class="text-left">Mail : {{ user.email }}</p>
+                                            <p class="text-left">Téléphone : 0{{ user.phoneMobil }}</p>
+                                            <p class="text-left">Adresse : {{ user.userAdress }}</p>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <span>
+                                        <ul>
+                                          <li>
+                                              <a href="{{ path('users_edit', {'id': user.id}) }}">
+                                                  <i class="far fa-edit"></i>
+                                              </a>
+                                          </li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

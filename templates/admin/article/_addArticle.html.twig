@@ -1,0 +1,63 @@
+
+{{ form_start(form, {'attr': {'class':'contact100-form validate-form'}}) }}
+
+<div class="wrap-input100 validate-input" data-validate="L'intitulé est obligatoire">
+    {{ form_widget(form.title) }}
+    {{ form_errors(form.title) }}
+    <label class="label-input100" for="{{ form.title.vars.id }}">
+        <span class="lnr lnr-pencil"></span>
+    </label>
+</div>
+<div class="wrap-input100 validate-input" data-validate="Le sous-titre est obligatoire">
+    {{ form_widget(form.subTitle) }}
+    {{ form_errors(form.subTitle) }}
+    <label class="label-input100" for="{{ form.subTitle.vars.id }}">
+        <span class="lnr lnr-pencil"></span>
+    </label>
+</div>
+<div class="wrap-input100 validate-input" data-validate = "Vous n'avez rien à raconter?">
+    {{ form_widget(form.content) }}
+</div>
+<div data-validate="Avec une image c'est mieux">
+    {{ form_widget(form.medias) }}
+</div>
+<div class="wrap-input100" style="margin-top: 15px" data-validate = "Vous n'avez rien à raconter?">
+    {{ form_widget(form.press) }}
+</div>
+
+{{ form_label(form.category) }}
+<div data-validate="Avec une image c'est mieux">
+    {{ form_widget(form.category) }}
+</div>
+{{ form_label(form.author) }}
+<div data-validate="l'auteur">
+    {{ form_widget(form.author) }}
+</div>
+<div class="container-contact100-form-btn">
+    <div class="wrap-contact100-form-btn">
+        <div class="contact100-form-bgbtn"></div>
+        <button class="btn btn contact100-form-btn">{{ button_label|default('Créer') }}</button>
+    </div>
+</div>
+
+{{ form_end(form) }}
+
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+
+
+
+{#{% endblock %}#}

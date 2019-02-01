@@ -1,0 +1,42 @@
+<div class="au-chat__title">
+    <div class="au-chat-info">
+        <div class="avatar-wrap online">
+            <div class="avatar avatar--small">
+                <img src="images/users/{{ message.user.picture }}" alt="{{ message.name }}">
+            </div>
+        </div>
+        <span class="nick">
+            <a href="#">{{ message.name }}</a>
+        </span>
+    </div>
+</div>
+<div class="au-chat__content">
+    <div class="recei-mess-wrap">
+        <span class="mess-time">{% set date=date(message.dateSend).diff(date("now")) %}</span>
+        <div class="recei-mess__inner">
+            <div class="avatar avatar--tiny">
+                <img src="images/users/{{ message.user.picture }}" alt="{{ message.name }}">
+            </div>
+            <div class="recei-mess-list">
+                <div class="recei-mess">{{ message.message }}</div>
+                {#<div class="recei-mess">Donec tempor, sapien ac viverra</div>#}
+            </div>
+        </div>
+    </div>
+    <div class="send-mess-wrap">
+        <span class="mess-time">{% set date=date(message.dateSend).diff(date("now")) %}</span>
+        <div class="send-mess__inner">
+            <div class="send-mess-list">
+                <div class="send-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="au-chat-textfield">
+    <form class="au-form-icon">
+        <input class="au-input au-input--full au-input--h65" type="text" placeholder="Type a message">
+        <button class="au-input-icon">
+            <i class="zmdi zmdi-mail-send"></i>
+        </button>
+    </form>
+</div>

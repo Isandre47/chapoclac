@@ -1,0 +1,34 @@
+{% extends '/admin/baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="container main-content">
+
+        <h2 class="mb-5">Envoyer un mail</h2>
+
+        <form method="post" action="{{ path('mail') }}">
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">A qui envoyer un mail ?</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="groupe">
+
+                        <option>Tous les membres</option>
+                        <option>Aux abonnés newsletter</option>
+                        <option>----------------------</option>
+                        {% for activity in activities %}
+                            <option>{{ activity.cours }}</option>
+                        {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">En-tête</label>
+                <input type="text" class="form-control" id="exampleFormControlTextarea1" name="subject" rows="3"></input>
+
+                <label for="exampleFormControlTextarea1">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+        </form>
+    </div>
+
+{% endblock %}

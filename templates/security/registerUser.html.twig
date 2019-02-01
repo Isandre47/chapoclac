@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>{% block title %}Chapo - clac{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+
+    <!-- stylesheets css -->
+    <link rel="stylesheet" href="users/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="users/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="users/css/animate.min.css">
+    <link rel="stylesheet" href="users/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="users/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="users/css/nivo_themes/default/default.css">
+
+    <link rel="stylesheet" href="users/css/hover-min.css">
+    <link rel="stylesheet" href="users/css/flexslider.css">
+
+    <link rel="stylesheet" href="users/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- Navigation section -->
+{% include 'user/navbar.html.twig' %}
+
+<!-- page de tout les articles -->
+{% block body %}
+
+    {{ form_start(form, {'attr': {'class':'contact100-form validate-form'}}) }}
+    <section id="inscrip" class="parallax-section">
+        <div class="container">
+            <div class="row">
+                <h2 class="titleRegister text-center">Inscription</h2>
+                <div class="content">
+                    <div class="animated fadeIn">
+                        {{ form_start(form, {'attr': {'class':'form-control-label'}}) }}
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="cardUser">
+                                    <div class="card-header">
+                                        <strong>A propos de l'utilisateur</strong>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Nom</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                {{ form_widget(form.lastName) }}
+                                            </div>
+                                            <small class="form-text text-muted">ex. Dupont</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Prénom</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                {{ form_widget(form.firstName) }}
+                                            </div>
+                                            <small class="form-text text-muted">ex. Paul</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Adresse</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-map-marker-alt"></i></div>
+                                                {{ form_widget(form.userAdress) }}
+                                            </div>
+                                            <small class="form-text text-muted">ex. 120 boulevard de la Garde</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Numéro de téléphone</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                                {{ form_widget(form.phoneHouse) }}
+                                            </div>
+                                            <small class="form-text text-muted">Tel fixe au format : 0456789876</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Numéro de mobile</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
+                                                {{ form_widget(form.phoneMobil) }}
+                                            </div>
+                                            <small class="form-text text-muted">ex. 0606060606</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Email</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                                {{ form_widget(form.email) }}
+                                            </div>
+                                            <small class="form-text text-muted">ex. viv@teck.no</small>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Mot de passe</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-pencil-square-o"></i></div>
+                                                {{ form_widget(form.password) }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Confirmez votre mot de passe</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-pencil-square-o"></i></div>
+                                                {{ form_widget(form.confirmPassword) }}
+                                                {{ form_errors(form.confirmPassword) }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Date de naissance</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                                {{ form_widget(form.birthDate) }}
+                                            </div>
+                                            <small class="form-text text-muted">ex. 05/09/1981</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="cardUser">
+                                            <div class="card-header">
+                                                <strong>Assurance</strong>
+                                            </div>
+                                            <div class="card-body card-block">
+                                                <div class="form-group">
+                                                    <label class=" form-control-label">Nom</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-medkit"></i></div>
+                                                        {{ form_widget(form.insurance) }}
+                                                    </div>
+                                                    <small class="form-text text-muted">ex. Matmut</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class=" form-control-label">Numéro de contrat</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-medkit"></i></div>
+                                                        {{ form_widget(form.numInsurance) }}
+                                                    </div>
+                                                    <small class="form-text text-muted">ex. 12A567TR</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="cardUser">
+                                            <div class="card-header">
+                                                <strong>Docteur</strong>
+                                            </div>
+                                            <div class="card-body card-block">
+                                                <div class="form-group">
+                                                    <label class=" form-control-label">Nom</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-stethoscope"></i></div>
+                                                        {{ form_widget(form.doctorName) }}
+                                                    </div>
+                                                    <small class="form-text text-muted">ex. House</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class=" form-control-label">Téléphone</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                                        {{ form_widget(form.doctorPhone) }}
+                                                    </div>
+                                                    <small class="form-text text-muted">ex. 0456789876</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class=" form-control-label">Adresse</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-map-marker-alt"></i></div>
+                                                        {{ form_widget(form.doctorAdress) }}
+                                                    </div>
+                                                    <small class="form-text text-muted">ex. 267 rue d'endoume</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="cardUser">
+                                    <div class="card-header">
+                                        <strong>A remplir uniquement pour les mineurs</strong>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Nom du responsable</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                {{ form_widget(form.minorNameResponsable) }}
+                                            </div>
+                                            <small class="form-text text-muted">ex. Dupont</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Numéro du responsable</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                                {{ form_widget(form.minorPhone) }}
+                                            </div>
+                                            <small class="form-text text-muted">ex. 06060606</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class=" form-control-label">Classe</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-edit"></i></div>
+                                                {{ form_widget(form.minorClass) }}
+                                            </div>
+                                            <small class="form-text text-muted">ex. CM 2</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% do form.validate.setRendered %}
+                        <div class="container-contact100-form-btn justify-content-center">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+
+                                <button class="btn btn contact100-form-btn" style="margin-left: 50%">{{ button_label|default('Créer') }}</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+
+
+
+
+
+{% endblock %}
+
+<!-- javscript js -->
+<script src="../users/js/jquery.js"></script>
+<script src="../users/js/bootstrap.min.js"></script>
+
+<script src="../users/js/jquery.magnific-popup.min.js"></script>
+
+<script src="../users/js/jquery.sticky.js"></script>
+<script src="../users/js/jquery.backstretch.min.js"></script>
+
+<script src="../users/js/isotope.js"></script>
+<script src="../users/js/imagesloaded.min.js"></script>
+<script src="../users/js/nivo-lightbox.min.js"></script>
+
+<script src="../users/js/jquery.flexslider-min.js"></script>
+
+<script src="../users/js/jquery.parallax.js"></script>
+<script src="../users/js/smoothscroll.js"></script>
+<script src="../users/js/wow.min.js"></script>
+
+<script src="../users/js/custom.js"></script>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

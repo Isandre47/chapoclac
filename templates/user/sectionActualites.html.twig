@@ -1,0 +1,67 @@
+{% block body %}
+
+    <!-- Feature section -->
+    <section id="feature" class="parallax-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
+                        <h2 class="titleColor">Actualités</h2>
+                        <h4 class="subTitle">Les dernières infos</h4>
+                    </div>
+                </div>
+
+                <ul class="filter-wrapper clearfix">
+                    <li><a href="{{ path('all_articles') }}">Toute l'actualité</a></li>
+                    <li><a href="{{ path('chapo_clac_articles') }}">Actualités de Chapo-Clac</a></li>
+                    <li><a href="{{ path('friends_articles') }}">Actualités de nos amis</a></li>
+                    {#TODO: creer une fonction qui permet de recuperer les themes de facon variable#}
+                </ul>
+
+
+                <div class="clearfix"></div>
+
+                {#<div class="iso-box-section fadeInUp" data-wow-delay="0.9s">#}
+                    <div class=" iso-box-wrapper">
+
+                {% for article in articles %}
+                    <div class=" col-md-4 col-sm-6 wow" data-wow-delay="0.3s">
+                        <div class="blog-cardC spring-fever {{ article.category.name }}" style="background: url(/images/articles/{{ article.medias }}) no-repeat;">
+                            <div class="title-content">
+                                <h3>{{ article.title }}</h3>
+                                <hr />
+                                <div class="intro">{{ article.subTitle }}</div>
+                            </div><!-- /.title-content -->
+                            <div class="card-info">
+                            <a class="linkCardActu" href="{{ path('show_article', {'id':article.id}) }}">
+                                {{ article.content[:100] ~ " ... " }}
+                            </a>
+                            </div><!-- /.card-info -->
+                            <div class="utility-info">
+                                <ul class="utility-list">
+                                    <li class="comments">{{ article.comments|length }}</li>
+                                    <li class="date">{{ article.dateCreation|date("d.m.Y") }}</li>
+                                    </a>
+                                </ul>
+                            </div><!-- /.utility-info -->
+                            <!-- overlays -->
+                            <div class="gradient-overlay"></div>
+                            <div class="color-overlay"></div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+
+                    </div>
+                {#</div>#}
+
+            </div>
+        </div>
+        <div class="" style="height: 78px">
+
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block body %}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="m-2" href="{{ path('activities') }}"><i class="fas fa-hand-point-left fa-3x"></i></a>
+                    <h2 class="m-3">Modifier {{ activity.cours }}</h2>
+                    {{ include('admin/class/_editCours.html.twig', {'button_label': 'Sauvegarder'}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

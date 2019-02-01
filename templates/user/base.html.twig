@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+
+        <title>{% block title %}Chapo - clac{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+
+        <!-- stylesheets css -->
+        <link rel="stylesheet" href="users/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="users/css/magnific-popup.css">
+
+        <link rel="stylesheet" href="users/css/animate.min.css">
+        <link rel="stylesheet" href="users/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="users/css/nivo-lightbox.css">
+        <link rel="stylesheet" href="users/css/nivo_themes/default/default.css">
+
+        <link rel="stylesheet" href="users/css/hover-min.css">
+        <link rel="stylesheet" href="users/css/flexslider.css">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="users/css/style.css">
+
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+        <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+
+    </head>
+    <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+    {% include ('user/header.html.twig') %}
+
+    {% include "user/navbar.html.twig" %}
+
+
+    {% block body %}{% endblock %}
+
+    {% include "user/footer.html.twig" %}
+
+
+        <!-- javscript js -->
+        <script src="users/js/jquery.js"></script>
+        <script src="users/js/bootstrap.min.js"></script>
+
+        <script src="users/js/jquery.magnific-popup.min.js"></script>
+
+        <script src="users/js/jquery.sticky.js"></script>
+        <script src="users/js/jquery.backstretch.min.js"></script>
+
+        <script src="users/js/isotope.js"></script>
+        <script src="users/js/imagesloaded.min.js"></script>
+        <script src="users/js/nivo-lightbox.min.js"></script>
+
+        <script src="users/js/jquery.flexslider-min.js"></script>
+
+        <script src="users/js/jquery.parallax.js"></script>
+        <script src="users/js/smoothscroll.js"></script>
+        <script src="users/js/wow.min.js"></script>
+
+        <script src="users/js/custom.js"></script>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

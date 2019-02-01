@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>{% block title %}Chapo - clac{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+
+    <!-- stylesheets css -->
+    <link rel="stylesheet" href="../users/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../users/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="../users/css/animate.min.css">
+    <link rel="stylesheet" href="../users/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../users/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="../users/css/nivo_themes/default/default.css">
+
+    <link rel="stylesheet" href="../users/css/hover-min.css">
+    <link rel="stylesheet" href="../users/css/flexslider.css">
+
+    <link rel="stylesheet" href="../users/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- Navigation section -->
+{% include 'user/navbar.html.twig' %}
+
+<!-- page de tout les articles -->
+{% block body %}
+
+    <!-- Feature section -->
+    <section id="feature" class="parallax-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
+                        <h2 class="titleColor">Toute l'actualités</h2>
+                        <h4 class="subTitle">Les derniers infos</h4>
+                    </div>
+                </div>
+                <ul class="filter-wrapper clearfix">
+                    <li><a href="{{ path('all_articles') }}">Toute l'actualité</a></li>
+                    <li><a href="{{ path('chapo_clac_articles') }}">Actualités de Chapo-Clac</a></li>
+                    <li><a href="{{ path('friends_articles') }}">Actualités de nos amis</a></li>
+                    {#TODO: creer une fonction qui permet de recuperer les themes de facon variable#}
+                </ul>
+                <div class="clearfix"></div>
+                <div class="row m-t-25 justify-content-around">
+                {% for article in articles %}
+                    <div class="col-md-4 col-sm-6 wow fadeInUp mb-5" data-wow-delay="0.3s">
+                        <div class="blog-cardC spring-fever" style="background: url({#/images/articles/#}{{ article.medias }}) no-repeat;">
+                            <div class="title-content">
+                                <h3>{{ article.title }}</h3>
+                                <hr />
+                                <div class="intro">{{ article.subTitle }}</div>
+                            </div><!-- /.title-content -->
+                            <div class="card-info">
+                                <a class="linkCardActu" href="{{ path('show_article', {'id':article.id}) }}">
+                                    {{ article.content[:100] ~ " ... " }}
+                                </a>
+                            </div><!-- /.card-info -->
+                            <div class="utility-info">
+                                <ul class="utility-list">
+                                    <li class="comments">{{ article.comments|length }}</li>
+                                    <li class="date">{{ article.dateCreation|date("d.m.Y") }}</li>
+                                </ul>
+                            </div><!-- /.utility-info -->
+                            <!-- overlays -->
+                            <div class="gradient-overlay"></div>
+                            <div class="color-overlay"></div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+                    <div>{{ pagination(articles, 'page') }}</div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+<!-- javscript js -->
+<script src="../users/js/jquery.js"></script>
+<script src="../users/js/bootstrap.min.js"></script>
+
+<script src="../users/js/jquery.magnific-popup.min.js"></script>
+
+<script src="../users/js/jquery.sticky.js"></script>
+<script src="../users/js/jquery.backstretch.min.js"></script>
+
+<script src="../users/js/isotope.js"></script>
+<script src="../users/js/imagesloaded.min.js"></script>
+<script src="../users/js/nivo-lightbox.min.js"></script>
+
+<script src="../users/js/jquery.flexslider-min.js"></script>
+
+<script src="../users/js/jquery.parallax.js"></script>
+<script src="../users/js/smoothscroll.js"></script>
+<script src="../users/js/wow.min.js"></script>
+
+<script src="../users/js/custom.js"></script>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

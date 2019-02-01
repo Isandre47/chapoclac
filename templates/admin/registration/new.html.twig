@@ -1,0 +1,13 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            <span class="contact100-form-title">
+					Ajouter un élève à un cours
+            </span>
+            {% include 'admin/flashMessage.html.twig' %}
+            {{ include('admin/registration/_form.html.twig', {'button_label': 'Créer'}) }}
+        </div>
+    </div>
+{% endblock %}

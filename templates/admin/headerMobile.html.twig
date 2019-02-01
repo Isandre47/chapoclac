@@ -1,0 +1,349 @@
+<!-- HEADER MOBILE-->
+<header class="header-mobile d-block d-lg-none">
+    <div class="header-mobile__bar">
+        <div class="container-fluid">
+            <div class="header-mobile-inner">
+                <a class="logo" href="index.html">
+                    Chapo - Clac
+                </a>
+                <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar-mobile">
+        <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+                <!--Qui sommes-nous ?-->
+                <li>
+                    <a href="{{ path('presentation_index') }}">
+                        <i class="fas fa-users"></i>Qui sommes-nous ?</a>
+                </li>
+                <!--Articles-->
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-pencil-square-o"></i>Articles</a>
+                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                        <li>
+                            <a href="{{ path('articles_index') }}">Tous les articles</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('articles_new') }}">Créer</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--User-->
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-user"></i>Utilisateurs</a>
+                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                        <li>
+                            <a href="{{ path('users_index') }}">Tous les utilisateurs</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('users_new') }}">Créer</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Office -->
+                <li>
+                    <a href="{{ path('bureau') }}">
+                        <i class="far fa-building"></i>Bureau</a>
+                </li>
+                <!--Show-->
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="far fa-star"></i>Spectacles / Photos</a>
+                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                        <li>
+                            <a href="{{ path('spectacles_index') }}">Tous les spectables</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('spectacles_new') }}">Créer</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--Class-->
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-calendar-alt"></i>Cours / Ateliers</a>
+                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                        <li>
+                            <a href="{{ path('activities') }}">Tous les cours / ateliers</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('activities_new') }}">Créer un cours</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('registration_new') }}">Ajouter un élève à un cours</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Youtube -->
+                <li>
+                    <a href="{{ path('youtube_index') }}">
+                        <i class="fab fa-youtube"></i>Youtube</a>
+                </li>
+
+                <!-- Comments -->
+                <li>
+                    <a href="{{ path('comment') }}">
+                        <i class="fas fa-comments"></i>Commentaires</a>
+                </li>
+                <!-- Newsletter -->
+                {#<li>#}
+                {#<a href="#">#}
+                {#<i class="fas fa-at"></i>Newsletters</a>#}
+                {#</li>#}
+                {#<!-- Messages -->#}
+                {#<li>#}
+                <a href="{{ path('send_mails') }}">
+                    <i class="fas fa-comment"></i>Messages / Newsletters</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- END HEADER MOBILE-->
+
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo justify-content-center">
+        <ul>
+            <li><a href="{{ path('admin', {'id': app.user.id} ) }}"><img src="/users/images/logo.png" alt="Chapo - Clac"></a></li>
+        </ul>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li class="active has-sub">
+                    <a href="{{ path('presentation_index') }}">
+                        <i class="fas fa-users"></i>A propos de nous !</a>
+                </li>
+                <!-- Articles -->
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-pencil-square-o"></i>Articles</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ path('articles_index') }}">Tous les articles</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('articles_new') }}">Créer un article</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Users -->
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-user"></i>Utilisateurs</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ path('users_index') }}">Tous les utilisateurs</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('users_new') }}">Créer</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- office -->
+                <li>
+                    <a href="{{ path('bureau') }}">
+                        <i class="far fa-building"></i>Bureau</a>
+                </li>
+                <!-- Show -->
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="far fa-star"></i>Spectacles / Photos</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ path('spectacles_index') }}">Tous les spectacles</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('spectacles_new') }}">Créer un spectacle</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Class -->
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-calendar-alt"></i>Cours / Ateliers</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ path('activities') }}">Tous les cours / ateliers</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('activities_new') }}">Créer un cours</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('registration_new') }}">Ajouter un élève à un cours</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Youtube -->
+
+                <li>
+                    <a href="{{ path('youtube_index') }}">
+                        <i class="fab fa-youtube"></i>Youtube</a>
+                </li>
+
+                <!-- Comments -->
+                <li>
+                    <a href="{{ path('comment') }}">
+                        <i class="fas fa-comments"></i>Commentaires</a>
+                </li>
+
+                <!-- Newsletters -->
+                {#<li>#}
+                {#<a href="#">#}
+                {#<i class="fas fa-at"></i>Newsletters</a>#}
+                {#</li>#}
+
+                <!-- Messages -->
+                <li>
+                    <a href="{{ path('send_mails') }}">
+                        <i class="fas fa-comment"></i>Messages / Newsletters</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!-- END MENU SIDEBAR-->
+
+<!-- PAGE CONTAINER-->
+<div class="page-container">
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="header-wrap pull-right">
+                    <!-- Search -->
+                    {#<form class="form-header" action="" method="POST">#}
+                    {#<input class="au-input au-input--xl" type="text" name="search" placeholder="Recherche" />#}
+                    {#<button class="au-btn--submit" type="submit">#}
+                    {#<i class="zmdi zmdi-search"></i>#}
+                    {#</button>#}
+                    {#</form>#}
+                    <!-- End Search -->
+                    <!-- Icon Message nav bar -->
+                    <div class="header-button">
+                        <div class="noti-wrap">
+                            <div class="noti__item js-item-menu">
+                                <div class="mess-dropdown js-dropdown">
+                                    <div class="mess__title">
+                                    </div>
+                                    <!-- Details Messages -->
+
+                                    <div class="mess__item">
+                                        <div class="image img-cir img-40">
+                                        </div>
+                                    </div>
+
+                                    <!-- End Dentails Messages -->
+                                </div>
+                            </div>
+                            <!-- End Icon Message nav bar -->
+                            <!-- Icon Mail nav bar -->
+                            <div class="js-item-menu">
+                                <div class="email-dropdown js-dropdown">
+
+                                    <!-- Detail Mails -->
+                                    <div class="email__item">
+                                        <div class="image img-cir img-40">
+                                        </div>
+
+                                    </div>
+                                    <div class="email__item">
+                                        <div class="image img-cir img-40">
+                                        </div>
+
+                                    </div>
+                                    <div class="email__item">
+                                        <div class="image img-cir img-40">
+                                        </div>
+
+                                    </div>
+                                    <div class="email__footer">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Icon Notification -->
+                            <div class="js-item-noti-menu">
+                                <div class="notifi-dropdown js-dropdown">
+                                    <div class="notifi__title">
+                                    </div>
+                                    <!-- Details Notifications -->
+                                    <div class="notifi__item">
+                                        <div class="bg-c1 img-cir img-40">
+                                            <i class="zmdi zmdi-email-open"></i>
+                                        </div>
+
+                                    </div>
+                                    <div class="notifi__item">
+                                        <div class="bg-c2 img-cir img-40">
+                                            <i class="zmdi zmdi-account-box"></i>
+                                        </div>
+
+                                    </div>
+                                    <div class="notifi__item">
+                                        <div class="bg-c3 img-cir img-40">
+                                            <i class="zmdi zmdi-file-text"></i>
+                                        </div>
+
+                                    </div>
+                                    <div class="notifi__footer">
+
+                                    </div>
+                                    <!-- End Details Notifications -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Avatar navbar-->
+                        <div class="account-wrap">
+                            <div class="account-item clearfix js-item-menu">
+                                <div class="image">
+                                    <img src="/images/users/{{ app.user.picture }}" alt="{{ app.user.lastname }}" />
+                                </div>
+                                <div class="content">
+                                    <a class="js-acc-btn" href="#">{{ app.user.firstName }}</a>
+                                </div>
+                                <div class="account-dropdown js-dropdown">
+                                    <div class="info clearfix">
+                                        <div class="image img-cir img-40">
+                                            <a href="#">
+                                                <img src="/images/users/{{ app.user.picture }}" alt="{{ app.user.lastname }}" />
+                                            </a>
+                                        </div>
+                                        <!-- Detail avatar -->
+                                        <div class="content">
+                                            <h5 class="name">
+                                                <a href="#">{{ app.user.firstName }} {{ app.user.lastName }}</a>
+                                            </h5>
+                                            <span class="email">{{ app.user.email }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-dropdown__body">
+                                        <div class="account-dropdown__item">
+                                            <a href="{{ path('users_show', {'id': app.user.id}) }}">
+                                                <i class="zmdi zmdi-account"></i>Compte</a>
+                                        </div>
+                                        <div class="account-dropdown__footer">
+                                            <a href="{{ path('app_logout') }}">
+                                                <i class="zmdi zmdi-power"></i>Déconnexion</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- HEADER DESKTOP-->

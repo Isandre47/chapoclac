@@ -1,0 +1,54 @@
+<p>Photo actuelle : </p>
+<div style="padding-bottom: 15px">
+    <img src="/images/activities/{{ activity.picture }}" class="sizePictureEdit" alt="">
+</div>
+{{ form_start(form, {'attr': {'class':'contact100-form validate-form'}}) }}
+    {{ form_label(form.cours) }}
+<div class="wrap-input100 validate-input" data-validate="L'intitulé est obligatoire">
+    {{ form_widget(form.cours) }}
+    {{ form_errors(form.cours) }}
+    <label class="label-input100" for="{{ form.cours.vars.id }}">
+        <span class="lnr lnr-pencil"></span>
+    </label>
+</div>
+    {{ form_label(form.day) }}
+<div class="wrap-input100 validate-input" data-validate = "C'est quel jour?">
+    {{ form_widget(form.day) }}
+</div>
+    {{ form_label(form.hour) }}
+<div class="wrap-input100 validate-input" data-validate = "On vient à l'heure qu'on veut?">
+    <label class="label-input100" for="{{ form.hour.vars.id }}">
+        <i class="far fa-clock"></i>
+    </label>
+    {{ form_widget(form.hour) }}
+    {% do form.reservation.setRendered %}
+</div>
+<div class="wrap-input100 validate-input" data-validate="Combien ça coûte?">
+    {{ form_widget(form.price) }}
+    {{ form_errors(form.price) }}
+</div>
+    {{ form_label(form.picture) }}
+<div class="wrap-input100" data-validate="Avec une image c'est mieux">
+    {{ form_widget(form.picture) }}
+</div>
+
+
+<div class="container-contact100-form-btn">
+    <div class="wrap-contact100-form-btn">
+        <div class="contact100-form-bgbtn"></div>
+        <button class="btn btn contact100-form-btn">{{ button_label|default('Créer') }}</button>
+    </div>
+</div>
+{{ form_end(form) }}
+
+<div id="dropDownSelect1"></div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-23581568-13');
+</script>
+

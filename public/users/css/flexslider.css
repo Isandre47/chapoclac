@@ -1,0 +1,195 @@
+/* carousel */
+#quote-carousel
+{
+  margin-top: 30px;
+  background-color: #a94442;
+  border-radius: 10px;
+}
+/* Control buttons  */
+#quote-carousel .carousel-control
+{
+  background: none;
+  color: #222;
+  font-size: 2.3em;
+  text-shadow: none;
+  margin-top: 50px;
+}
+
+.actu{
+  overflow: hidden;
+  height: 100px;
+}
+/* Previous and Next button */
+#quote-carousel .carousel-control.left, #quote-carousel .carousel-control.right
+{
+  color: black;
+}
+@media(min-width: 350px) and (max-width: 976px){
+  #quote-carousel .carousel-control.left{
+    left: -5%
+  }
+  #quote-carousel .carousel-control.right
+  {
+    right: -5%;
+  }
+}
+
+@media(min-width: 350px) and (max-width: 450px){
+  #quote-carousel .carousel-control.left, #quote-carousel .carousel-control.right
+  {
+    margin-top: 60%;
+  }
+  .poster{
+    max-width: 90%;
+  }
+}
+@media(min-width: 451px) and (max-width: 600px){
+  #quote-carousel .carousel-control.left, #quote-carousel .carousel-control.right
+  {
+    margin-top: 45%;
+  }
+  .poster{
+    max-width: 60%;
+  }
+}
+
+@media(min-width: 601px) and (max-width: 976px){
+  #quote-carousel .carousel-control.left, #quote-carousel .carousel-control.right
+  {
+    margin-top: 35%;
+  }
+  .poster{
+    max-width: 50%;
+  }
+}
+
+
+@media(min-width: 977px){
+  #quote-carousel .carousel-control.left
+  {
+    margin-top: 35%;
+    left: -20%;
+  }
+  #quote-carousel .carousel-control.right
+  {
+    margin-top: 35%;
+    right: -20%;
+  }
+  .poster{
+    max-width: 65%;
+  }
+}
+
+
+/* Changes the color of the indicators */
+
+#quote-carousel .carousel-indicators .active
+{
+  background: black;
+}
+
+
+/**
+  MEDIA QUERIES
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #quote-carousel
+  {
+    margin-bottom: 0;
+    padding: 0 40px 30px 40px;
+  }
+
+}
+
+/* Small devices (tablets, up to 768px) */
+@media (max-width: 768px) {
+
+  /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+
+  #quote-carousel .carousel-indicators {
+    bottom: -20px !important;
+  }
+  #quote-carousel .carousel-indicators li {
+    display: inline-block;
+    margin: 5px 5px;
+    width: 15px;
+    height: 15px;
+  }
+  #quote-carousel .carousel-indicators li.active {
+    margin: 0px 5px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.div1{
+  max-width: 100%;
+  height: 45vh;
+  /*border-color: red;*/
+  /*border-style: solid;*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.div0{
+  max-width: 100%;
+  display: flex;
+  /*border-color: black;*/
+  /*border-style: solid;*/
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.titre{
+  text-align: center;
+  font-family: 'Tangerine', cursive;
+  font-size: 6vh;
+  /*padding-top: 15px;*/
+  color: whitesmoke;
+  margin-top: 50px;
+}
+.gauche{
+  max-width: 60%;
+  max-height: 100%;
+  /*border-color: green;*/
+  /*border-style: solid;*/
+  text-align: center;
+}
+
+.droite{
+  max-width: 40%;
+  max-height: 100%;
+  /*border-color: yellow;*/
+  /*border-style: solid;*/
+  align-content: center;
+  text-align: center;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.resume {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1.3vh;
+  line-height: 150%;
+  color: whitesmoke;
+}
+
+.comedien{
+  max-width: 100%;
+  /*border-color: orange;*/
+  /*border-style: solid;*/
+  text-align: center;
+  font-size: 1.4vh;
+  color: whitesmoke;
+}
+
+/*.poster{*/
+  /*max-width: 85%;*/
+/*}*/
+
+.comedien > span{
+  font-weight: bold;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>{% block title %}Chapo - clac{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+
+    <!-- stylesheets css -->
+    <link rel="stylesheet" href="../users/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../users/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="../users/css/animate.min.css">
+    <link rel="stylesheet" href="../users/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../users/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="../users/css/nivo_themes/default/default.css">
+
+    <link rel="stylesheet" href="../users/css/hover-min.css">
+    <link rel="stylesheet" href="../users/css/flexslider.css">
+
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="../users/css/style.css">
+
+
+
+</head>
+<body class="bodyArticle">
+
+<!-- Navigation section -->
+
+{% include 'user/navbar.html.twig' %}
+
+<!-- page d un articles -->
+{% block body %}
+
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-12">
+
+            <!-- Title -->
+            <h2 class="titleArticle text-center">{{ article.title }}</h2>
+
+            <!-- Date/Time -->
+            <p class="author text-center">
+                Posté le {{ article.dateCreation|date("d M Y") }} par {{ article.author.firstname }} {{ article.author.lastname }}</p>
+            {#<hr>#}
+
+            <p class=" subTitleArticle text-center">{{ article.subTitle }}</p>
+            <div class="text-center">
+                <img class="img-Article" src="{{ '/images/articles/' ~ article.medias }}"  style=width:50% alt="{{ article.title }}">
+            </div>
+            {#<hr>#}
+
+            <!-- Post Content -->
+            <p class="articleContent text-center">{{ article.content }}</p>
+
+            <hr>
+
+            <!-- Comments Form -->
+            {{ form_start(form, {'attr': {'class':''}}) }}
+            <div class="card my-4">
+                <h5 class="card-header articleContent">Commentaires :</h5>
+                <div class="card-body">
+                    {% if app.token.user == 'anon.' %}
+                        <div class="col-sm-12 text-dark"><label class="">Pseudo :</label>
+                            <div class="wrap-input100 validate-input" data-validate="Un petit nom?">
+                                {{ form_widget(form.speudo) }}
+                                <label class="label-input100" for="{{ form.speudo.vars.id }}">
+                                    <span class="lnr lnr-pencil"></span>
+                                </label>
+                            </div>
+                        </div>
+                    {% else %}
+                        {% do form.speudo.setRendered %}
+                    {% endif %}
+                        <div class="col-sm-12 wrap-input100 validate-input" data-validate="Un petit nom?">
+                            {{ form_widget(form.content) }}
+                            <label class="label-input100" for="{{ form.content.vars.id }}">
+                                <span class="lnr lnr-pencil"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container-contact100-form-btn">
+                            <div class="wrap-contact100-form-btn text-center">
+                                <div class="contact100-form-bgbtn"></div>
+                                <button class="btn userComments" style=width:20%>{{ button_label|default('Poster') }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(form) }}
+
+            <!-- Single Comment -->
+            <div class="row">
+            {% for comment in article.comments %}
+            {% if comment.author is empty %}
+                <div class="">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <div class="text-muted text-center">
+                        <h4>le {{ comment.date|date("d M Y") }} a {{ comment.date|date("h:m") }}</h4>
+                    </div><!-- /thumbnail -->
+                {#</div><!-- /col-sm-1 -->#}
+
+                {#<div class="col-sm-6">#}
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                             <span class="">{{ comment.speudo }}</span>
+                        </div>
+                        <div class="panel-body text-center">
+                            {{ comment.content }}
+                        </div><!-- /panel-body -->
+                    </div><!-- /panel panel-default -->
+                </div><!-- /col-sm-5 -->
+                </div>
+                {% else %}
+                    <div class="">
+                        <div class="col-sm-offset-3 col-sm-6">
+                            <div class="text-muted text-center">
+                                <h4>le {{ comment.date|date("d M Y") }} a {{ comment.date|date("h:m") }}</h4>
+                            </div><!-- /thumbnail -->
+                        {#</div><!-- /col-sm-1 -->#}
+
+                        {#<div class="col-sm-5">#}
+                            <div class="panel panel-default">
+                                <div class="panel-heading text-center">
+                                    <span class="">{{ comment.author.firstname }} {{ comment.author.lastname }}</span>
+                                </div>
+                                <div class="panel-body text-center">
+                                    {{ comment.content }}
+                                </div><!-- /panel-body -->
+                            </div><!-- /panel panel-default -->
+                        </div><!-- /col-sm-5 -->
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    {% endblock %}
+
+</body>
+</html>

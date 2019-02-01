@@ -1,0 +1,319 @@
+{% extends "admin/baseAdmin.html.twig" %}
+
+{% block body %}
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="overview-wrap">
+                            <h2 class="title-1">Activités</h2>
+                        </div>
+                    </div>
+                </div>
+            <!-- Card Actualités -->
+            <!-- Users -->
+            <div class="row m-t-25">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-accounts"></i>
+                                </div>
+                                <div class="text">
+                                    <a class="click_actualité" href="{{ path('users_index') }}">
+                                        <h2>{{ allUsers|length }}</h2>
+                                        <span>Membres</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Users -->
+                <!-- Articles -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="overview-item overview-item--c2">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-collection-item"></i>
+                                </div>
+                                <div class="text">
+                                    <a class="click_actualité" href="{{ path('articles_index') }}">
+                                        <h2>{{ allArticles|length }}</h2>
+                                        <span>Articles</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Articles -->
+                <!-- Show -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="overview-item overview-item--c3">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-star"></i>
+                                </div>
+                                <div class="text">
+                                    <a class="click_actualité" href="{{ path('spectacles_index') }}">
+                                        <h2>{{ spectacles|length }}</h2>
+                                        <span>Spectacles</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Show -->
+                <!-- Class -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="overview-item overview-item--c4">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon">
+                                    <i class="zmdi zmdi-paste"></i>
+                                </div>
+                                <div class="text">
+                                    <a class="click_actualité" href="{{ path('users_index') }}">
+                                        <h2>{{ validates|length }}</h2>
+                                        <span>Inscriptions</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Class -->
+            <!-- End Cards Actualités -->
+            <!-- Table Articles -->
+            <div class="row">
+                <div class="col-lg-9">
+                    <h2 class="title-1 m-b-25">Articles</h2>
+                    <div class="table-responsive table--no-card m-b-40">
+                        <table class="table table-borderless table-striped table-earning">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Titre</th>
+                                <th class="text-center">Contenu</th>
+                                {#<th class="text-center">Images</th>#}
+                                <th class="text-center">Auteur</th>
+                                <th class="text-center">Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <td class="text-center"><a href="{{ path('articles_index')}}">{{ article.title }}</a></td>
+                                    <td class="text-center"><a href="{{ path('articles_index')}}">{{ article.content[:30] ~ '...' }}</a></td>
+                                    {#<td class="text-center "><img class="img-fluid img-thumbnail sizePictureTab #}{#sizePictureTab#}{#" src="images/articles/{{ article.medias }}" alt="{{ article.medias }}"></td>#}
+                                    <td class="text-center"><a href="{{ path('articles_index')}}">{{ article.author.firstName }}</a></td>
+                                    <td class="text-center"><a href="{{ path('articles_index')}}">{{ article.dateCreation|date("d.m.Y") }}</a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- End Table Articles -->
+                <!-- Users -->
+                <div class="col-lg-3">
+                    <h2 class="title-1 m-b-25">Utilisateurs</h2>
+                    <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
+                        <div class="au-card-inner">
+                            <div class="table-responsive">
+                                <table class="table table-top-countries">
+                                    <tbody>
+                                    {% for user in users %}
+                                        <tr>
+                                            <td><a class="linkTableUser" href="{{ path('users_show', {'id': user.id}) }}">{{ user.firstName }}</a></td>
+                                            <td><a class="linkTableUser" href="{{ path('users_show', {'id': user.id}) }}">{{ user.lastName }}</a></td>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="22">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Users -->
+            <!-- Calandar -->
+            {#<div class="row">#}
+                {#<div class="col-lg-6">#}
+                    {#<div class="au-card au-card--no-shadow au-card--no-pad m-b-40">#}
+                        {#<div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">#}
+                            {#<div class="bg-overlay bg-overlay--blue"></div>#}
+                            {#<h3>#}
+                                {#<i class="zmdi zmdi-account-calendar"></i>22 Novembre 2018</h3>#}
+                            {#<button class="au-btn-plus">#}
+                                {#<i class="zmdi zmdi-plus"></i>#}
+                            {#</button>#}
+                        {#</div>#}
+                        {#<div class="au-task js-list-load">#}
+                            {#<div class="au-task__title">#}
+                                {#<p>Agenda de Eve</p>#}
+                            {#</div>#}
+                            {#<div class="au-task-list js-scrollbar3">#}
+                                {#<div class="au-task__item au-task__item--danger">#}
+                                    {#<div class="au-task__item-inner">#}
+                                        {#<h5 class="task">#}
+                                            {#<a href="#">Meeting about plan for Admin Template 2018</a>#}
+                                        {#</h5>#}
+                                        {#<span class="time">10:00 AM</span>#}
+                                    {#</div>#}
+                                {#</div>#}
+                                {#<div class="au-task__item au-task__item--warning">#}
+                                    {#<div class="au-task__item-inner">#}
+                                        {#<h5 class="task">#}
+                                            {#<a href="#">Create new task for Dashboard</a>#}
+                                        {#</h5>#}
+                                        {#<span class="time">11:00 AM</span>#}
+                                    {#</div>#}
+                                {#</div>#}
+                                {#<div class="au-task__item au-task__item--primary">#}
+                                    {#<div class="au-task__item-inner">#}
+                                        {#<h5 class="task">#}
+                                            {#<a href="#">Meeting about plan for Admin Template 2018</a>#}
+                                        {#</h5>#}
+                                        {#<span class="time">02:00 PM</span>#}
+                                    {#</div>#}
+                                {#</div>#}
+                                {#<div class="au-task__item au-task__item--success">#}
+                                    {#<div class="au-task__item-inner">#}
+                                        {#<h5 class="task">#}
+                                            {#<a href="#">Create new task for Dashboard</a>#}
+                                        {#</h5>#}
+                                        {#<span class="time">03:30 PM</span>#}
+                                    {#</div>#}
+                                {#</div>#}
+                                {#<div class="au-task__item au-task__item--danger js-load-item">#}
+                                    {#<div class="au-task__item-inner">#}
+                                        {#<h5 class="task">#}
+                                            {#<a href="#">Meeting about plan for Admin Template 2018</a>#}
+                                        {#</h5>#}
+                                        {#<span class="time">10:00 AM</span>#}
+                                    {#</div>#}
+                                {#</div>#}
+                                {#<div class="au-task__item au-task__item--warning js-load-item">#}
+                                    {#<div class="au-task__item-inner">#}
+                                        {#<h5 class="task">#}
+                                            {#<a href="#">Create new task for Dashboard</a>#}
+                                        {#</h5>#}
+                                        {#<span class="time">11:00 AM</span>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<div class="au-task__footer">#}
+                                {#<button class="au-btn au-btn-load js-load-btn">Voir plus</button>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+                {#<!-- End Calandar -->#}
+                {#<!-- Messages -->#}
+                {#<div class="col-lg-6">#}
+                    {#<div class="au-card au-card--no-shadow au-card--no-pad m-b-40">#}
+                        {#<div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">#}
+                            {#<div class="bg-overlay bg-overlay--blue"></div>#}
+                            {#<h3>#}
+                                {#<i class="zmdi zmdi-comment-text"></i>Nouveaux messages</h3>#}
+                            {#<button class="au-btn-plus">#}
+                                {#<i class="zmdi zmdi-plus"></i>#}
+                            {#</button>#}
+                        {#</div>#}
+                        {#<div class="au-inbox-wrap js-inbox-wrap">#}
+                            {#<div class="au-message js-list-load">#}
+                                {#<div class="au-message__noti">#}
+                                    {#<p>Vous avez#}
+                                        {#<span>2</span>#}
+
+                                        {#nouveau(x) message(s)#}
+                                    {#</p>#}
+                                {#</div>#}
+
+                                {#<div class="au-message-list">#}
+                                {#{% for message in messages %}#}
+                                    {#<div class="au-message__item unread click-message" data-id="{{ message.id }}">#}
+                                        {#<div class="au-message__item-inner">#}
+                                            {#<div class="au-message__item-text">#}
+                                                {#{% if message.user is not empty %}#}
+                                                {#<div class="avatar-wrap">#}
+                                                    {#<div class="avatar">#}
+                                                        {#<img src="images/users/{{ message.user.picture }}" alt="{{ message.name }}">#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                                {#{% endif %}#}
+                                                {#<div class="text">#}
+                                                    {#<h5 class="name">{{ message.name }}</h5>#}
+                                                    {#<p>{{ message.message[:30] ~ '...' }}</p>#}
+                                                {#</div>#}
+                                            {#</div>#}
+                                            {#<div class="au-message__item-time">#}
+                                                {#{% set date=date(message.dateSend).diff(date("now")) %}#}
+                                                {#<span>reçu il y a {{ date.days }} jours</span>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#{% endfor%}#}
+                                 {#<div class="message_content"></div>#}
+                                {#</div>#}
+                                {#<div class="au-message__footer">#}
+                                    {#<button class="au-btn au-btn-load js-load-btn">Voir plus</button>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<div class="au-chat message_content">#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+            <!-- End Messages -->
+            <!-- Footer -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <p>Copyright © 2018 Wild. All rights reserved. {#Template by <a href="https://colorlib.com">Colorlib</a>.#}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer -->
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT-->
+
+{% endblock %}
+
+    {% block javascripts %}
+    <script>
+    jQuery(document).ready(function () {
+
+        //recuperation de l'id du bouton
+        $('.click-message').click(function () {
+            var messageId = $(this).data('id');
+
+            $.ajax({
+                url: "/admin/message/content",
+                type: 'POST',
+                dataType: 'json',
+                data: {'id': messageId },
+                success: function(response){
+                    $(".message_content").html(response.template);
+                }});
+
+        })
+    });
+    </script>
+    {% endblock %}

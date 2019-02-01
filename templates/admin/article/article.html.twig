@@ -1,0 +1,74 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block body %}
+
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-between">
+                        <div class="overview-wrap">
+                            <h2 class="title-1">Articles</h2>
+                        </div>
+                        <div class="container-contact100-form-btn">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+                                    <a href="{{ path('articles_new') }}">
+                                    <button class="btn btn contact100-form-btn">{{ button_label|default('Créer un nouvel article') }}</button>
+                                    </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row m-t-25">
+                    <div class="col-lg-12">
+                        <div class="table-responsive table--no-card m-b-30">
+                            <table class="table table-borderless table-striped table-earning">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">Categorie</th>
+                                    <th class="text-center">Titre</th>
+                                    <th class="text-center">Contenu</th>
+                                    <th class="text-center">Images</th>
+                                    <th class="text-center">Auteur</th>
+                                    <th class="text-center">Date</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for article in articles %}
+                                    <tr>
+                                        <td class="text-center"><a href="{{ path('show_article', {'id': article.id}) }}">{{ article.category }}</a></td>
+                                        <td class="text-center"><a href="{{ path('show_article', {'id': article.id}) }}">{{ article.title }}</a></td>
+                                        <td class="text-center"><a href="{{ path('show_article', {'id': article.id}) }}">{{ article.content[:30] ~ '...' }}</a></td>
+
+
+                                        <td class="text-center"><img class="img-fluid img-thumbnail sizePictureTab" src="/images/articles/{{ article.medias }}" alt="{{ article.medias }}"></td>
+                                        <td class="text-center">{{ article.author.firstName }} {{ article.author.lastname }}</td>
+                                        <td class="text-center">{{ article.dateCreation|date("d.m.Y") }}</td>
+                                        <td class="text-center">
+                                            <div class="container">
+                                                <a href="{{ path('show_article', {'id': article.id}) }}"><i class="far fa-eye fa-lg pr-3"></i></a>
+                                                <a href="{{ path('articles_edit', {'id': article.id}) }}"><i class="far fa-edit fa-lg pr-3"></i></a>
+                                                <form method="post" class="crossbones" action="{{ path('articles_delete', {'id': article.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cet article?');">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+                                                     <button type="submit" class="text-danger"><i class="fas fa-skull-crossbones fa-lg"></i></button>
+                                                </form>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
